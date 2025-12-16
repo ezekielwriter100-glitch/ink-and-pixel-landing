@@ -1,4 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <!-- BASIC META -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -7,13 +10,13 @@
   <meta name="description" content="Ink & Pixel Studio helps founders turn ideas, data, and narratives into decision-ready pitch decks and research-backed materials built for investors and institutions." />
   <meta name="author" content="Ink & Pixel Studio" />
 
-  <!-- Open Graph -->
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Ink & Pixel Studio" />
   <meta property="og:description" content="Turn your idea into a decision-ready story investors can say yes to." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://inkandpixel.studio" />
 
-  <!-- Fonts -->
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +24,6 @@
   <!-- CORE STYLES -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
@@ -60,7 +62,7 @@
   <!-- PAIN -->
   <section class="pain">
     <div class="container">
-      <h2>Great ideas don’t fail. <br>Unclear thinking does.</h2>
+      <h2>Great ideas don’t fail.<br>Unclear thinking does.</h2>
       <p>
         Most founders don’t lose funding because their idea is weak.
         They lose because their thinking isn’t structured for investors.
@@ -81,15 +83,12 @@
   <section class="who">
     <div class="container">
       <h2>Who this is for</h2>
-      <p>
-        Ink & Pixel Studio works with:
-      </p>
+      <p>Ink & Pixel Studio works with:</p>
       <ul>
         <li><strong>Startup founders</strong> preparing for fundraising or demos</li>
         <li><strong>Early teams</strong> seeking clarity before scaling</li>
         <li><strong>Institutions & organizations</strong> turning research into action</li>
       </ul>
-
       <p class="note">
         Not for people looking for Canva templates, rushed visuals,
         or “pretty slides” without thinking behind them.
@@ -105,26 +104,17 @@
       <div class="service-grid">
         <div class="service-card">
           <h3>Pitch Decks That Think</h3>
-          <p>
-            Investor-ready decks built on logic, narrative flow, and evidence —
-            not guesswork.
-          </p>
+          <p>Investor-ready decks built on logic, narrative flow, and evidence — not guesswork.</p>
         </div>
 
         <div class="service-card">
           <h3>Data & Insight Storytelling</h3>
-          <p>
-            We turn complex information into clean visuals and narratives
-            that drive decisions.
-          </p>
+          <p>We turn complex information into clean visuals and narratives that drive decisions.</p>
         </div>
 
         <div class="service-card">
           <h3>Strategic Writing & Research</h3>
-          <p>
-            White papers, proposals, and reports designed to influence outcomes,
-            not just inform.
-          </p>
+          <p>White papers, proposals, and reports designed to influence outcomes, not just inform.</p>
         </div>
       </div>
 
@@ -143,31 +133,21 @@
       <div class="process-steps">
         <div class="step">
           <h3>1. Clarity Audit</h3>
-          <p>
-            We analyze your idea, pitch, or data to identify confusion points,
-            gaps, and weak logic.
-          </p>
+          <p>We analyze your idea, pitch, or data to identify confusion points, gaps, and weak logic.</p>
         </div>
 
         <div class="step">
           <h3>2. Strategic Structuring</h3>
-          <p>
-            We rebuild the narrative around investor psychology,
-            decision flow, and evidence.
-          </p>
+          <p>We rebuild the narrative around investor psychology, decision flow, and evidence.</p>
         </div>
 
         <div class="step">
           <h3>3. Design & Delivery</h3>
-          <p>
-            Clean visuals support the thinking — never distract from it.
-          </p>
+          <p>Clean visuals support the thinking — never distract from it.</p>
         </div>
       </div>
 
-      <p class="note">
-        No unnecessary iterations. No design-first nonsense.
-      </p>
+      <p class="note">No unnecessary iterations. No design-first nonsense.</p>
     </div>
   </section>
 
@@ -178,16 +158,16 @@
 
       <div class="metrics">
         <div>
-          <strong>50+</strong>
+          <strong data-count="50">0</strong>
           <span>Structured decks & research projects delivered</span>
         </div>
         <div>
-          <strong>Multiple sectors</strong>
-          <span>Startups, academia, organizations</span>
+          <strong data-count="3">0</strong>
+          <span>Key sectors served</span>
         </div>
         <div>
-          <strong>Early-stage founders</strong>
-          <span>Supported through investor conversations</span>
+          <strong data-count="20">0</strong>
+          <span>Early-stage founders supported</span>
         </div>
       </div>
 
@@ -212,8 +192,7 @@
       </p>
 
       <p><strong>The result:</strong><br>
-        Sharper questions, clearer conversations, and renewed interest —
-        because the story finally made sense.
+        Sharper questions, clearer conversations, and renewed interest — because the story finally made sense.
       </p>
 
       <p class="emphasis">Clarity changes the room.</p>
@@ -234,7 +213,7 @@
         <li>Whether we’re a fit to help further</li>
       </ul>
 
-      <a href="#contact" class="btn-primary">Request Your Free Audit</a>
+      <a href="#audit" class="btn-primary">Request Your Free Audit</a>
     </div>
   </section>
 
@@ -243,18 +222,19 @@
     <div class="container">
       <h2>If clarity matters, this is where you start.</h2>
       <a href="#audit" class="btn-primary">Request a Free Clarity Audit</a>
-      <p class="small">
-        Small step. High signal.
-      </p>
+      <p class="small">Small step. High signal.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Ink & Pixel Studio. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Ink & Pixel Studio. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- CORE SCRIPT -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
