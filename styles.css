@@ -402,6 +402,11 @@ nav a:hover {
   display: block;
 }
 
+.logo a {
+  display: inline-flex;
+  align-items: center;
+}
+
 
   section {
     padding: 4rem 0;
