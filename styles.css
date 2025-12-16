@@ -137,6 +137,32 @@ p.small {
   align-items: center;
   padding: 1.1rem 0;
 }
+/* BRAND LOGO + NAME */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem; /* space between logo and text */
+}
+
+.logo img {
+  height: 36px;        /* keeps logo small and professional */
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  white-space: nowrap; /* prevents wrapping */
+}
 
 /* LOGO (BASE — applies everywhere) */
 
