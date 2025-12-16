@@ -1,27 +1,41 @@
-/* ==============================
-   ROOT & GLOBAL RESET
-================================ */
+/* =====================================================
+   Ink & Pixel Studio — Core Design System
+   Serious. Research-driven. Conversion-first.
+===================================================== */
+
+/* =========================
+   ROOT VARIABLES
+========================= */
 
 :root {
-  --bg-dark: #0b0e14;
-  --bg-panel: #11151c;
-  --text-primary: #ffffff;
+  --bg-main: #0b0e14;
+  --bg-surface: #11151c;
+  --bg-soft: #0e121a;
+
+  --text-main: #ffffff;
   --text-secondary: #b8c1cc;
   --text-muted: #8a93a3;
 
   --accent: #f5b942;
-  --accent-soft: rgba(245, 185, 66, 0.15);
+  --accent-hover: #ffd16a;
+  --accent-soft: rgba(245, 185, 66, 0.14);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-* {
-  margin: 0;
-  padding: 0;
+/* =========================
+   RESET & BASE
+========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -30,15 +44,27 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
+  background: var(--bg-main);
+  color: var(--text-main);
   line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ==============================
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
    LAYOUT
-================================ */
+========================= */
 
 .container {
   width: 90%;
@@ -50,25 +76,31 @@ section {
   padding: 5.5rem 0;
 }
 
-h1, h2, h3 {
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+h3 {
   letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
   font-weight: 800;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 p {
@@ -76,78 +108,73 @@ p {
   max-width: 720px;
 }
 
-ul {
-  list-style: none;
-  margin-top: 1rem;
+p.small {
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-ul li {
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 14, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: box-shadow 0.3s ease;
+}
+
+.nav-scrolled {
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+nav a {
+  margin-left: 1.6rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 0.6rem;
 }
 
-/* ==============================
+nav a:hover {
+  color: var(--text-main);
+}
+
+/* =========================
    BUTTONS
-================================ */
+========================= */
 
 .btn-primary {
   display: inline-block;
   background: var(--accent);
   color: #111;
-  padding: 0.8rem 1.6rem;
+  padding: 0.85rem 1.7rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
-  text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: #ffd16a;
-  transform: translateY(-1px);
+  background: var(--accent-hover);
 }
 
 .btn-secondary {
-  color: var(--text-primary);
-  text-decoration: none;
   margin-left: 1.2rem;
   font-weight: 500;
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* ==============================
-   NAVIGATION
-================================ */
-
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(11, 14, 20, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.nav-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 0;
-}
-
-nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-nav a:hover {
-  color: var(--text-primary);
-}
-
-/* ==============================
+/* =========================
    HERO
-================================ */
+========================= */
 
 .hero {
   padding-top: 7rem;
@@ -164,33 +191,34 @@ nav a:hover {
 
 .hero-cta {
   margin-top: 2.2rem;
+  transition: opacity 0.3s ease;
 }
 
-/* ==============================
+.cta-dim {
+  opacity: 0.45;
+}
+
+/* =========================
    PAIN SECTION
-================================ */
+========================= */
 
 .pain {
-  background: var(--bg-panel);
+  background: var(--bg-surface);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.pain h2 {
-  max-width: 600px;
-}
-
 .pain ul {
-  margin: 1.4rem 0;
+  margin: 1.5rem 0;
 }
 
 .pain strong {
   color: var(--accent);
 }
 
-/* ==============================
-   WHO
-================================ */
+/* =========================
+   WHO SECTION
+========================= */
 
 .who .note {
   margin-top: 1.2rem;
@@ -198,12 +226,12 @@ nav a:hover {
   color: var(--text-muted);
 }
 
-/* ==============================
+/* =========================
    SERVICES
-================================ */
+========================= */
 
 .services {
-  background: #0e121a;
+  background: var(--bg-soft);
 }
 
 .service-grid {
@@ -214,24 +242,15 @@ nav a:hover {
 }
 
 .service-card {
-  background: var(--bg-panel);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.6rem;
 }
 
-.service-card p {
-  font-size: 0.95rem;
-}
-
-.emphasis {
-  margin-top: 2.5rem;
-  font-weight: 500;
-}
-
-/* ==============================
+/* =========================
    PROCESS
-================================ */
+========================= */
 
 .process-steps {
   display: grid;
@@ -245,17 +264,12 @@ nav a:hover {
   border-left: 2px solid var(--accent-soft);
 }
 
-.process .note {
-  margin-top: 2rem;
-  color: var(--text-muted);
-}
-
-/* ==============================
-   PROOF
-================================ */
+/* =========================
+   PROOF / METRICS
+========================= */
 
 .proof {
-  background: var(--bg-panel);
+  background: var(--bg-surface);
 }
 
 .metrics {
@@ -271,7 +285,6 @@ nav a:hover {
 }
 
 .metrics span {
-  display: block;
   font-size: 0.9rem;
   color: var(--text-muted);
 }
@@ -279,11 +292,12 @@ nav a:hover {
 .disclaimer {
   margin-top: 2.5rem;
   font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-/* ==============================
+/* =========================
    CASE STUDY
-================================ */
+========================= */
 
 .case p {
   margin-top: 1.2rem;
@@ -295,9 +309,9 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* ==============================
+/* =========================
    AUDIT
-================================ */
+========================= */
 
 .audit {
   background:
@@ -309,28 +323,18 @@ nav a:hover {
   margin: 1.5rem 0;
 }
 
-.audit .btn-primary {
-  margin-top: 1.5rem;
-}
-
-/* ==============================
+/* =========================
    FINAL CTA
-================================ */
+========================= */
 
 .final-cta {
+  background: var(--bg-soft);
   text-align: center;
-  background: #0e121a;
 }
 
-.final-cta p.small {
-  margin-top: 0.8rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-/* ==============================
+/* =========================
    FOOTER
-================================ */
+========================= */
 
 .footer {
   border-top: 1px solid var(--border-subtle);
@@ -340,9 +344,48 @@ nav a:hover {
   color: var(--text-muted);
 }
 
-/* ==============================
+/* =========================
+   JS INTEGRATION HELPERS
+========================= */
+
+.service-card,
+.step,
+.metrics div,
+.case p {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exit-message {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  max-width: 280px;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.exit-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
    RESPONSIVE
-================================ */
+========================= */
 
 @media (max-width: 768px) {
   nav a {
