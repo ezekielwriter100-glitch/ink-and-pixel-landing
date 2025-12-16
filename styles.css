@@ -135,7 +135,33 @@ p.small {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 0;
+  padding: 1.1rem 0;
+}
+
+/* LOGO (BASE — applies everywhere) */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 36px;           /* SMALL, PROFESSIONAL */
+  width: auto;
+  max-width: 140px;       /* prevents oversized logos */
+  object-fit: contain;
+}
+
+/* NAV LINKS */
+
+nav {
+  display: flex;
+  align-items: center;
 }
 
 nav a {
